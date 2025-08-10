@@ -14,11 +14,26 @@
 ---
 ## How to Run the Program
 
-1. **Make sure you have g++ installed** on your system.  
-   use this command on your terminal (Windows, Linux/macOS):  
-   `g++ --version`
-
-3. **Open a terminal** (Command Prompt on Windows, Terminal on Linux/macOS).
+1. **Open a terminal:**  
+For Windows:  
+    1. press:
+       ` windows + R`
+    2. Type:
+       `cmd`
+For Linux:
+    1. Press:
+       ` Ctrl + Alt + T`
+For MacOs:
+     1. press:
+       ` Command + Space`
+     2. Type:
+       `terminal`
+     3. Press:
+        `enter`
+    
+2. **Make sure you have g++ installed** on your system.  
+use this command on your terminal (Windows, Linux/macOS):  
+`g++ --version`
 
 4. **Go to the folder** where the file `Lenguajes.cpp` is located.  
    Example (Windows):
@@ -39,9 +54,14 @@ For Linux/macOS:
 
 8. **Check the output:** the program will show the equivalent state pairs from the DFA minimization.
    
+If you use the file called **`Input.txt`** (included in the project folder) which contains an example input for this program,  
+the expected output should be exactly as shown below:
 
-
-
+(1, 2) (3, 4)
+(1, 2) (3, 4) (3, 5) (4, 5)
+(0, 3) (1, 4) (2, 5)
+(0, 1)
+   
 ## Minimization Explanation
 
 🏁 Goal
