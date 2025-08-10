@@ -14,8 +14,8 @@
 ---
 ## How to Run the Program
 
-1. **Make sure you have g++ installed** on your system. /n
-   use this command (Windows, Linux/macOS):
+1. **Make sure you have g++ installed** on your system.  
+   use this command (Windows, Linux/macOS):  
    `g++ --version`
 
 3. **Open a terminal** (Command Prompt on Windows, Terminal on Linux/macOS).
