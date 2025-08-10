@@ -14,7 +14,7 @@
 ---
 ## How to Run the Program
 
-1. **Make sure you have g++ installed** on your system.
+1. **Make sure you have g++ installed** on your system. /n
    use this command (Windows, Linux/macOS):
    `g++ --version`
 
