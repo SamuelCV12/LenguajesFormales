@@ -32,7 +32,6 @@ bool getNonEmptyLine(ifstream &in, string &out) {
     return false;
 }
 
-// Trim (in-place)
 void trim_inplace(string &s) {
     size_t start = s.find_first_not_of(" \t\r\n");
     if (start == string::npos) { s.clear(); return; }
@@ -88,7 +87,7 @@ int main() {
         DFA dfa;
         dfa.n = n;
 
-        // Leer alfabeto (línea no vacía) y validar símbolos (a..z), sin duplicados
+        // Leer alfabeto (línea no vacía) y validar símbolos (a-z), sin duplicados
         if (!getNonEmptyLine(archivo, line)) {
             cerr << "Error: EOF inesperado al leer alfabeto para el caso " << caso+1 << "." << endl;
             return 1;
@@ -126,7 +125,7 @@ int main() {
         }
         int alphaSize = dfa.alphabet.size();
 
-        // --- LECTURA DE ESTADOS FINALES ---
+        //  LECTURA DE ESTADOS FINALES 
         // Aquí usamos getline normal para permitir una línea vacía (0 estados finales).
         if (!std::getline(archivo, line)) {
             cerr << "Error: EOF inesperado al leer estados finales para el caso " << caso+1 << "." << endl;
@@ -144,10 +143,10 @@ int main() {
                 }
                 dfa.isFinal[f] = true;
             }
-            // si hubiera tokens no numéricos esto fallaría en el while >> f; puedes validar más si se desea
+            // si hubiera tokens no numéricos esto fallaría en el while >> f
         }
 
-        // Leer tabla de transiciones: deben venir exactamente n líneas (cada una con índice + alphaSize enteros)
+        // Leer tabla de transiciones
         dfa.trans.assign(dfa.n, vector<int>(alphaSize, -1));
         for (int i = 0; i < dfa.n; ++i) {
             if (!getNonEmptyLine(archivo, line)) {
@@ -184,10 +183,7 @@ int main() {
             }
         }
 
-        // -------------------------
-        // Optimización: construir lista de predecesores para cada (estado,símbolo)
-        // pred[state][symbol] = vector de estados p tales que δ(p,symbol) = state
-        // -------------------------
+        // Construir lista de predecesores para cada (estado,símbolo)
         vector<vector<vector<int>>> pred(dfa.n, vector<vector<int>>(alphaSize));
         for (int p = 0; p < dfa.n; ++p) {
             for (int a = 0; a < alphaSize; ++a) {
@@ -200,7 +196,7 @@ int main() {
         vector<vector<bool>> marcado(dfa.n, vector<bool>(dfa.n, false));
         queue<pair<int,int>> q;
 
-        // Marcar pares cuyo estado final difiere y encolarlos
+        // Marcar pares cuyo estado final es diferente y encolarlos
         for (int p = 0; p < dfa.n; ++p) {
             for (int r = p + 1; r < dfa.n; ++r) {
                 if (dfa.isFinal[p] != dfa.isFinal[r]) {
@@ -210,7 +206,6 @@ int main() {
             }
         }
 
-        // Propagación eficiente: para cada par marcado (r,s) mirar sus predecesores
         while (!q.empty()) {
             auto pr = q.front(); q.pop();
             int r = pr.first;
@@ -220,7 +215,7 @@ int main() {
                 const auto &preR = pred[r][a];
                 const auto &preS = pred[s][a];
                 if (preR.empty() || preS.empty()) continue;
-                // combinar preR x preS
+                
                 for (int p_state : preR) {
                     for (int q_state : preS) {
                         if (p_state == q_state) continue;
@@ -243,7 +238,7 @@ int main() {
             }
         }
 
-        // Orden lexicográfico (ya lo estarán por construcción, pero lo aseguramos)
+        // Orden lexicográfico 
         sort(equivalentes.begin(), equivalentes.end());
 
         // Imprimir pares (en una sola línea, separados por espacios)
@@ -256,3 +251,4 @@ int main() {
 
     return 0;
 }
+
