@@ -41,4 +41,46 @@ For Linux/macOS:
    
 
 
+
+## Minimization Explanation
+
+🏁 Goal
+We want to minimize a DFA — that means merging states that do the exact same thing for every possible input string.
+Two states are equivalent if:
+
+No matter what input we give them, they always end up in the same kind of place (final or non-final).
+
+🛠 Steps
+1. Make the table of pairs
+Write down all possible pairs of states (without repeats and without order).
+
+Example: if states are 0,1,2 → the pairs are (0,1), (0,2), (1,2).
+
+2. Mark the obvious differences
+If one state is final and the other is not, mark them.
+Why? Because they already disagree with the empty string: one accepts immediately, the other doesn’t.
+
+3. Mark indirect differences
+Look at each unmarked pair.
+
+For each symbol in the alphabet:
+
+See where both states go (their next states).
+
+Check that resulting pair in the table.
+
+If the resulting pair is marked, then mark the current pair too (because their “futures” are different).
+
+Keep repeating this step until no new marks appear in a full pass.
+
+4. Read the result
+Any unmarked pair = the two states are equivalent → merge them in the minimized DFA.
+
+🔍 How to Think About It
+Step 2: “They’re different right away.”
+
+Step 3: “They might be the same now, but later they behave differently — so they’re different after all.”
+
+Step 4: “If we can’t prove they’re different, they must be the same.”
+
  
