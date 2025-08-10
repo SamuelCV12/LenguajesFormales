@@ -27,17 +27,17 @@
 5. **Compile the program with this command:** (Windows, Linux/macOS)
    g++ -std=c++17 Lenguajes.cpp -o Lenguajes
 
-7. **Run the program:**
+6. **Run the program:**
 For Windows:
 `Lenguajes.exe`
 
 For Linux/macOS: 
 `./Lenguajes`
 
-8. **When asked for the file path, type the name or path of your input file:**
+7. **When asked for the file path, type the name or path of your input file:**
 `Input.txt` or the full path: Example: `C:\Users\Samuel\Desktop\C++\.vscode\Lenguajes\Input.txt`
 
-9. **Check the output:** the program will show the equivalent state pairs from the DFA minimization.
+8. **Check the output:** the program will show the equivalent state pairs from the DFA minimization.
    
 
 
