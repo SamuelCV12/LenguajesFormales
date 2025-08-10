@@ -103,7 +103,7 @@ If you use the file **`Input.txt`** (included in the project folder), the expect
 
 ## Minimization Algorithm Explanation
 
-### 🏁 Goal
+### Goal
 Minimize a DFA — merge states that behave identically for every possible input string.
 
 Two states are equivalent if:
@@ -111,7 +111,7 @@ Two states are equivalent if:
 
 ---
 
-### 🛠 Steps
+### Steps
 
 1. **Make the table of pairs**  
    List all possible state pairs (without repeats and without order).  
@@ -132,7 +132,14 @@ Two states are equivalent if:
 
 ---
 
-### 🔍 How to Think About It
+### How to Think About It
 - Step 2: *"They differ immediately."*  
 - Step 3: *"They might seem the same now, but behave differently later."*  
-- Step 4: *"If we can't prove they're different, they must be the same."*  
+- Step 4: *"If we can't prove they're different, they must be the same."*
+  
+---
+  ### Important Notes (from Kozen’s Algorithm)
+- A pair marked in Step 2 is **surely not equivalent** — they already differ with the empty string.  
+- Some pairs may need to be checked **multiple times** in Step 3, because a new mark elsewhere can trigger more marks.  
+- The algorithm always finishes in a **finite number of steps**, since there is a limited number of possible pairs.  
+- Step 4 is a **direct consequence of the theorem** that the algorithm correctly identifies equivalent states.   
