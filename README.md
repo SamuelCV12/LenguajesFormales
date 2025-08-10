@@ -142,4 +142,13 @@ Two states are equivalent if:
 - A pair marked in Step 2 is **surely not equivalent** — they already differ with the empty string.  
 - Some pairs may need to be checked **multiple times** in Step 3, because a new mark elsewhere can trigger more marks.  
 - The algorithm always finishes in a **finite number of steps**, since there is a limited number of possible pairs.  
-- Step 4 is a **direct consequence of the theorem** that the algorithm correctly identifies equivalent states.   
+- Step 4 is a **direct consequence of the theorem** that the algorithm correctly identifies equivalent states.
+
+---
+## References
+1. **Pdf:** 
+   - Explanation of the homework(https://drive.google.com/file/d/1PMJLSE38hAFXtbtLT-21nZ_RKAy_BxE_/view)
+2. **Book**
+   - Kozen, Dexter C. Automata and Computability. New York, NY: Springer New York, 1997.
+3. **AI Tools:**
+   - ChatGPT and DeepSeek for code organization and explanation of the minimization algorithm .
