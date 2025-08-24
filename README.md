@@ -104,11 +104,63 @@ If you use the file **`Input.txt`** (included in the project folder), the expect
 ## Minimization Algorithm Explanation
 
 ### Goal
-Minimize a DFA — merge states that behave identically for every possible input string.
 
-Two states are equivalent if:
-- No matter what input is given, they always end up in the same type of state (final or non-final).
+This program reads one or more Deterministic Finite Automata (DFA) from a text file, analyzes them, and outputs the pairs of states that are equivalent (i.e., indistinguishable) in lexicographic order. It uses the table-filling algorithm for DFA minimization to determine state equivalence.
 
+ Main Components
+1. DFA Representation
+
+The DFA is represented with:
+
+The number of states.
+
+The alphabet symbols.
+
+A list indicating which states are final.
+
+A transition table where each entry specifies the destination state for a given state and symbol.
+
+2. Input Handling
+
+The program asks the user for the path of a .txt file.
+
+It reads:
+
+The number of test cases.
+
+For each case: the number of states, the alphabet, the set of final states, and the transition table.
+
+Input is validated to ensure no invalid symbols, indices, or missing transitions are present.
+
+Blank lines and extra whitespace are ignored.
+
+3. Transition and Predecessor Construction
+
+The program builds two main structures:
+
+A transition table: rows correspond to states and columns to symbols.
+
+A predecessor list: for each state and symbol, it stores the states that transition into it.
+
+The predecessor list is essential for backtracking during the minimization algorithm.
+
+4. Distinguishability Table (Table-Filling Algorithm)
+
+The algorithm identifies which state pairs are distinguishable:
+
+Initialization
+
+A matrix is created to keep track of marked pairs of states.
+
+Any pair where one state is final and the other is not is immediately marked as distinguishable.
+
+Propagation
+
+A queue is used to propagate distinguishability backwards through the automaton.
+
+If a pair of states leads to an already distinguishable pair through some symbol, it is also marked as distinguishable.
+
+This ensures that all necessary pairs are correctly identified.
 ---
 
 ### Steps
