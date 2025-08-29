@@ -93,10 +93,10 @@ C:\Users\Samuel\Desktop\C++\.vscode\Lenguajes\Input.txt
 If you use the file **`Input.txt`** (included in the project folder), the expected output will be:
 
 ```
-(1, 2) (3, 4)
-(1, 2) (3, 4) (3, 5) (4, 5)
-(0, 3) (1, 4) (2, 5)
-(0, 1)
+(1,2) (3,4)
+(1,2) (3,4) (3,5) (4,5)
+(0,3) (1,4) (2,5)
+(0,1)
 ```
 
 ---
